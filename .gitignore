@@ -67,3 +67,13 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+
+# Angular build output
+dist/
+
+# Angular cache
+.angular/
+
+# macOS
+.DS_Store
