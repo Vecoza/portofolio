@@ -1,0 +1,145 @@
+.contact {
+  padding: 140px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--c-border), transparent);
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.contact-heading {
+  font-family: var(--f-display);
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--c-white);
+  line-height: 1.05;
+  margin-bottom: 28px;
+}
+
+.contact-heading em {
+  font-style: italic;
+  color: var(--c-accent);
+}
+
+.contact-sub {
+  font-size: 15px;
+  color: var(--c-muted);
+  line-height: 1.9;
+  margin-bottom: 48px;
+  max-width: 520px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 36px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  color: var(--c-text);
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  margin-bottom: 40px;
+}
+
+.contact-btn:hover {
+  border-color: var(--c-accent);
+  background: rgba(124, 106, 247, 0.08);
+  transform: translateY(-2px);
+  color: var(--c-accent);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+.btn-arrow {
+  margin-left: auto;
+}
+
+.contact-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+  padding: 8px 0;
+}
+
+.social-link:hover {
+  color: var(--c-accent);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 80px;
+  margin-top: 80px;
+  border-top: 1px solid var(--c-border);
+  font-size: 11px;
+  color: var(--c-muted);
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-bg {
+  position: absolute;
+  right: -40px;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-text {
+  font-family: var(--f-display);
+  font-size: clamp(120px, 20vw, 250px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 80px 0 40px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .contact-btn {
+    font-size: 13px;
+    padding: 14px 24px;
+  }
+}

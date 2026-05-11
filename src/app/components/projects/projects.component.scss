@@ -1,0 +1,246 @@
+.projects {
+  padding: 140px 0;
+  position: relative;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--c-border), transparent);
+}
+
+.section-title {
+  font-family: var(--f-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--c-white);
+  line-height: 1.1;
+  margin-bottom: 56px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--c-accent);
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.proj-card.full {
+  grid-column: 1 / -1;
+}
+
+.proj-card {
+  position: relative;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color .3s, box-shadow .3s;
+}
+
+.proj-card:hover,
+.proj-card.active {
+  border-color: var(--pa);
+  box-shadow: 0 0 0 1px var(--pa, transparent), 0 20px 60px rgba(0,0,0,.25);
+}
+
+.card-border-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--pa, var(--c-accent));
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .4s var(--ease-out-expo);
+  border-radius: 0 2px 2px 0;
+}
+
+.proj-card.active .card-border-accent {
+  transform: scaleY(1);
+}
+
+.card-inner {
+  padding: 28px 32px;
+}
+
+.card-head {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-areas:
+    "num title"
+    "chips chips";
+}
+
+.card-num {
+  grid-area: num;
+}
+
+.card-titles {
+  grid-area: title;
+}
+
+.card-chips {
+  grid-area: chips;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.full .card-head {
+  grid-template-columns: 44px 1fr auto;
+}
+
+.card-num {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  color: var(--pa, var(--c-accent));
+  letter-spacing: .06em;
+  padding-top: 4px;
+}
+
+.card-titles {
+  min-width: 0;
+}
+
+.card-name {
+  font-family: var(--f-display);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  color: var(--c-white);
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+  transition: color .2s;
+}
+
+.proj-card.active .card-name {
+  color: var(--pa, var(--c-accent));
+}
+
+.card-tag {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--c-muted);
+  letter-spacing: .03em;
+}
+
+.card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.chip {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .03em;
+  background: var(--c-border);
+  color: var(--c-muted);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--c-muted);
+  line-height: 1.85;
+  border-top: 1px solid var(--c-border);
+  padding-top: 18px;
+}
+
+.card-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .4s var(--ease-out-expo);
+  overflow: hidden;
+}
+
+.card-expand.open {
+  grid-template-rows: 1fr;
+}
+
+.hl-list {
+  list-style: none;
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.hl-list li {
+  font-size: 13px;
+  color: var(--c-text);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.hl-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--pa, var(--c-accent));
+  font-size: 11px;
+}
+
+.card-actions {
+  padding: 16px 0 4px;
+  display: flex;
+  gap: 10px;
+}
+
+.c-link {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  padding: 7px 18px;
+  border: 1px solid;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.c-link:hover {
+  background: rgba(255,255,255,.05);
+}
+
+@media (max-width: 900px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-card.full {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects {
+    padding: 80px 0;
+  }
+
+  .card-inner {
+    padding: 20px;
+  }
+
+  .card-head {
+    grid-template-columns: 36px 1fr;
+  }
+
+  .card-chips {
+    display: none;
+  }
+}

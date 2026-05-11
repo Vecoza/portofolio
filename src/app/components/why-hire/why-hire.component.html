@@ -1,0 +1,43 @@
+<section id="why-hire" class="why">
+  <div class="container">
+    <p class="section-label" appReveal>/ Why hire me</p>
+    <h2 class="section-title" appReveal [delay]="0.1">
+      What I bring<br /><em>to the table.</em>
+    </h2>
+
+    <div class="reasons-grid">
+      <div
+        class="reason"
+        *ngFor="let r of reasons; let i = index"
+        appReveal
+        [delay]="i * 0.07 + 0.15"
+        [style.--ra]="r.accent"
+      >
+        <span class="r-num">{{ r.num }}</span>
+        <h3 class="r-title">{{ r.title }}</h3>
+        <p class="r-body">{{ r.body }}</p>
+      </div>
+    </div>
+
+    <div class="quote-strip" appReveal [delay]="0.55">
+      <div class="qs-line"></div>
+      <blockquote class="qs-quote">
+        I don't just write code — I build products people enjoy using.
+      </blockquote>
+      <div class="qs-line"></div>
+    </div>
+
+    <div class="why-cta" appReveal [delay]="0.65">
+      <a href="mailto:vedran_sunjic@hotmail.com" class="cta-btn hoverable">
+        Let's talk →
+      </a>
+      <a
+        href="assets/CV_Vedran_Sunjic.pdf"
+        download
+        class="cta-ghost hoverable"
+      >
+        Download CV
+      </a>
+    </div>
+  </div>
+</section>

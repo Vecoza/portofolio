@@ -1,0 +1,85 @@
+<section id="hero" class="hero">
+  <div class="container hero-layout">
+    <div class="hero-text">
+      <div class="eyebrow animate-in delay-1">
+        <span class="pulse-dot"></span>
+        Available for opportunities
+      </div>
+
+      <h1 class="hero-name animate-in delay-2">
+        <span class="line-1">Vedran</span>
+        <span class="line-2">Šunjić</span>
+      </h1>
+
+      <div class="hero-role animate-in delay-3">
+        <span class="role-bracket">&lt;</span>
+        <span class="role-text">{{ role }}</span>
+        <span class="role-cursor">_</span>
+        <span class="role-bracket">/&gt;</span>
+      </div>
+
+      <p class="hero-desc animate-in delay-4">
+        Frontend-focused engineer crafting modern web applications. Angular ·
+        TypeScript · .NET · Real-time systems.
+      </p>
+
+      <div class="hero-cta animate-in delay-5">
+        <a
+          href="#projects"
+          class="btn-fill hoverable"
+          (click)="go($event, 'projects')"
+        >
+          View projects <span>→</span>
+        </a>
+        <a
+          href="#contact"
+          class="btn-line hoverable"
+          (click)="go($event, 'contact')"
+        >
+          Say hello
+        </a>
+      </div>
+
+      <div class="hero-links animate-in delay-6">
+        <a
+          href="https://linkedin.com/in/vedran-sunjic"
+          target="_blank"
+          class="hero-link hoverable"
+        >
+          LinkedIn ↗
+        </a>
+        <span class="sep">·</span>
+        <a
+          href="https://github.com/Vecoza"
+          target="_blank"
+          class="hero-link hoverable"
+        >
+          GitHub ↗
+        </a>
+        <span class="sep">·</span>
+        <span class="hero-loc">Sarajevo, BiH</span>
+      </div>
+    </div>
+
+    <div
+      class="hero-photo-col animate-in delay-2"
+      [style.transform]="'translateY(' + photoY + 'px)'"
+    >
+      <div class="photo-aura"></div>
+
+      <img
+        src="assets/vedran-nobg.png"
+        alt="Vedran Šunjić"
+        class="photo"
+        [style.transform]="'translateY(' + imgY + 'px)'"
+      />
+
+      <div class="badge b-top" [style.transform]="'translateY(' + b1Y + 'px)'">
+        <span class="b-label">Angular · .NET</span>
+      </div>
+      <div class="badge b-bot" [style.transform]="'translateY(' + b2Y + 'px)'">
+        <span class="b-label">4 projects shipped</span>
+      </div>
+    </div>
+  </div>
+</section>

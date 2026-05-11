@@ -1,0 +1,124 @@
+<div class="modal-backdrop" (click)="onBackdropClick($event)">
+  <div
+    class="modal-panel"
+    [class.open]="isOpen"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button
+      class="modal-close hoverable"
+      (click)="close.emit()"
+      aria-label="Close"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        width="18"
+        height="18"
+      >
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+
+    <div class="modal-scroll" *ngIf="item">
+      <div class="modal-header" [style.--ma]="item.accentColor || '#7c6af7'">
+        <div class="modal-icon" *ngIf="item.icon">{{ item.icon }}</div>
+        <span class="modal-badge">{{ item.type }}</span>
+        <h2 class="modal-title">{{ item.title }}</h2>
+        <p class="modal-subtitle">{{ item.subtitle }}</p>
+
+        <div class="modal-pills">
+          <span class="pill" *ngIf="item.period">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              width="11"
+              height="11"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            {{ item.period }}
+          </span>
+
+          <span class="pill" *ngIf="item.location">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              width="11"
+              height="11"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            {{ item.location }}
+          </span>
+        </div>
+
+        <div class="header-glow"></div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-sec">
+          <h3 class="sec-label">Overview</h3>
+          <p class="modal-text">
+            {{ item.longDescription || item.description }}
+          </p>
+        </div>
+
+        <div class="modal-sec" *ngIf="item.highlights?.length">
+          <h3 class="sec-label">
+            {{ item.type === "project" ? "Key features" : "Highlights" }}
+          </h3>
+          <ul class="modal-list">
+            <li *ngFor="let h of item.highlights">
+              <span
+                class="li-dot"
+                [style.background]="item.accentColor || '#7c6af7'"
+              ></span>
+              {{ h }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-sec" *ngIf="item.tech?.length">
+          <h3 class="sec-label">Technologies</h3>
+          <div class="tech-wrap">
+            <span
+              class="t-badge"
+              *ngFor="let t of item.tech"
+              [style.border-color]="item.accentColor || '#7c6af7'"
+            >
+              {{ t }}
+            </span>
+          </div>
+        </div>
+
+        <div class="modal-sec" *ngIf="item.links?.length">
+          <h3 class="sec-label">Links</h3>
+          <div class="link-wrap">
+            <a
+              *ngFor="let l of item.links"
+              [href]="l.url"
+              target="_blank"
+              class="modal-link hoverable"
+              [style.color]="item.accentColor || '#7c6af7'"
+              [style.border-color]="item.accentColor || '#7c6af7'"
+            >
+              {{ l.label }} ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

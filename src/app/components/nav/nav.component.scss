@@ -1,0 +1,147 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding: 22px 40px;
+  transition: padding .4s, background .4s, border-bottom .4s;
+}
+
+nav.scrolled {
+  padding: 14px 40px;
+  background: rgba(10,10,15,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--c-white);
+  text-decoration: none;
+  letter-spacing: .05em;
+  flex-shrink: 0;
+}
+
+.logo-bracket {
+  color: var(--c-accent);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 7px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: color .2s, background .2s;
+  line-height: 1;
+}
+
+.nav-links a .n {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: var(--c-accent);
+}
+
+.nav-links a .lbl {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--c-muted);
+  letter-spacing: .04em;
+}
+
+.nav-links a:hover .lbl,
+.nav-links a.active .lbl {
+  color: var(--c-text);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--c-border);
+}
+
+.nav-links a.active .n {
+  color: var(--c-accent-3);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  text-decoration: none;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .05em;
+  border-radius: 5px;
+  transition: background .2s, color .2s, border-color .2s, transform .15s;
+}
+
+.nav-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border: 1px solid var(--c-border);
+  color: var(--c-muted);
+}
+
+.btn-ghost:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+.btn-accent {
+  border: 1px solid var(--c-accent);
+  color: var(--c-accent);
+}
+
+.btn-accent:hover {
+  background: var(--c-accent);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  nav {
+    padding: 16px 20px;
+  }
+
+  nav.scrolled {
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-actions .btn-ghost {
+    display: none;
+  }
+}

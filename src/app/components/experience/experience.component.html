@@ -1,0 +1,77 @@
+<section id="experience" class="experience">
+  <div class="container">
+    <p class="section-label" appReveal>/ Experience & Education</p>
+    <h2 class="section-title" appReveal [delay]="0.1">
+      The journey<br />so far.
+    </h2>
+
+    <div class="timeline">
+      <div class="timeline-group" appReveal [delay]="0.15">
+        <div class="group-label">Work</div>
+        <div
+          class="timeline-item"
+          *ngFor="let exp of experiences; let i = index"
+        >
+          <div class="timeline-dot"><div class="dot-inner"></div></div>
+          <div class="timeline-line" *ngIf="i < experiences.length - 1"></div>
+          <div
+            class="timeline-card hoverable"
+            (click)="openModal(exp.detail)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openModal(exp.detail)"
+          >
+            <div class="card-header">
+              <div>
+                <div class="card-company">{{ exp.company }}</div>
+                <div class="card-role">{{ exp.role }}</div>
+              </div>
+              <div class="card-meta">
+                <span class="card-period">{{ exp.period }}</span>
+                <span class="card-type">{{ exp.type }}</span>
+              </div>
+            </div>
+            <p class="card-desc">{{ exp.description }}</p>
+            <div class="card-tech">
+              <span class="tech-tag" *ngFor="let t of exp.tech">{{ t }}</span>
+            </div>
+            <span class="card-cta">View details →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-group" appReveal [delay]="0.25">
+        <div class="group-label">Education</div>
+        <div class="timeline-item" *ngFor="let edu of education; let i = index">
+          <div class="timeline-dot edu-dot"><div class="dot-inner"></div></div>
+          <div class="timeline-line" *ngIf="i < education.length - 1"></div>
+          <div
+            class="timeline-card edu-card hoverable"
+            (click)="openModal(edu.detail)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openModal(edu.detail)"
+          >
+            <div class="card-header">
+              <div>
+                <div class="card-company">{{ edu.institution }}</div>
+                <div class="card-role">{{ edu.degree }}</div>
+                <div class="edu-location">{{ edu.location }}</div>
+              </div>
+              <span class="card-period">{{ edu.period }}</span>
+            </div>
+            <div class="card-tech">
+              <span class="tech-tag" *ngFor="let h of edu.modules">{{
+                h
+              }}</span>
+            </div>
+            <span class="card-cta">View details →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-detail-modal *ngIf="activeItem" [item]="activeItem" (close)="closeModal()">
+</app-detail-modal>

@@ -1,0 +1,60 @@
+<section id="projects" class="projects">
+  <div class="container">
+    <p class="section-label" appReveal>/ Projects</p>
+    <h2 class="section-title" appReveal [delay]="0.1">
+      Things I've <em>built.</em>
+    </h2>
+
+    <div class="proj-grid">
+      <div
+        class="proj-card"
+        *ngFor="let p of projects; let i = index"
+        appReveal
+        [delay]="i * 0.08 + 0.15"
+        [class.full]="i === 0"
+        [class.active]="active === i"
+        [style.--pa]="p.accent"
+        (mouseenter)="active = i"
+        (mouseleave)="active = null"
+      >
+        <div class="card-inner">
+          <div class="card-head">
+            <span class="card-num">{{ p.num }}</span>
+            <div class="card-titles">
+              <h3 class="card-name">{{ p.name }}</h3>
+              <p class="card-tag">{{ p.tagline }}</p>
+            </div>
+            <div class="card-chips">
+              <span class="chip" *ngFor="let t of p.tech.slice(0, 4)">{{
+                t
+              }}</span>
+            </div>
+          </div>
+
+          <p class="card-desc">{{ p.description }}</p>
+
+          <div class="card-expand" [class.open]="active === i">
+            <ul class="hl-list">
+              <li *ngFor="let h of p.highlights">{{ h }}</li>
+            </ul>
+            <div class="card-actions">
+              <a
+                *ngIf="p.githubUrl"
+                [href]="p.githubUrl"
+                target="_blank"
+                class="c-link hoverable"
+                [style.color]="p.accent"
+                [style.border-color]="p.accent + '55'"
+                (click)="$event.stopPropagation()"
+              >
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="card-border-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

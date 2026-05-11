@@ -1,0 +1,49 @@
+<nav [class.scrolled]="scrolled">
+  <div class="nav-inner">
+    <a href="#hero" class="logo" (click)="scrollTo($event, 'hero')">
+      <span class="logo-bracket">[</span>VS<span class="logo-bracket">]</span>
+    </a>
+
+    <ul class="nav-links">
+      <li *ngFor="let item of links; let i = index">
+        <a
+          [href]="'#' + item.id"
+          (click)="scrollTo($event, item.id)"
+          [class.active]="activeSection === item.id"
+        >
+          <span class="n">0{{ i + 1 }}.</span>
+          <span class="lbl">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <a
+        href="assets/CV_Vedran_Sunjic.pdf"
+        download="Vedran_Sunjic_CV.pdf"
+        class="nav-btn btn-ghost hoverable"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          width="13"
+          height="13"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Download CV
+      </a>
+
+      <a
+        href="mailto:vedran_sunjic@hotmail.com"
+        class="nav-btn btn-accent hoverable"
+      >
+        Get in touch
+      </a>
+    </div>
+  </div>
+</nav>

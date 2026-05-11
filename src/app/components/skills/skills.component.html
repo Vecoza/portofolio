@@ -1,0 +1,56 @@
+<section id="skills" class="skills">
+  <div class="container">
+    <p class="section-label" appReveal>/ Skills</p>
+    <h2 class="section-title" appReveal [delay]="0.1">The toolkit.</h2>
+
+    <div class="skills-layout">
+      <div class="cat-list" appReveal [delay]="0.15">
+        <button
+          *ngFor="let g of groups; let i = index"
+          class="cat-btn hoverable"
+          [class.active]="tab === i"
+          [style.--cc]="g.color"
+          (click)="tab = i"
+        >
+          <span class="cat-num">0{{ i + 1 }}</span>
+          <span class="cat-label">{{ g.label }}</span>
+          <div class="cat-bar" *ngIf="tab === i"></div>
+        </button>
+      </div>
+
+      <div class="pill-area" appReveal [delay]="0.2">
+        <div
+          class="pill-group"
+          *ngFor="let g of groups; let i = index"
+          [class.visible]="tab === i"
+        >
+          <span
+            class="skill-pill"
+            *ngFor="let s of g.skills; let j = index"
+            [style.--pc]="g.color"
+            [style.animation-delay]="j * 0.035 + 's'"
+          >
+            {{ s.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lang-block" appReveal [delay]="0.3">
+      <div class="lang-title">Languages</div>
+      <div class="lang-list">
+        <div class="lang-item" *ngFor="let l of langs">
+          <span class="lang-name">{{ l.name }}</span>
+          <div class="lang-track">
+            <div
+              class="lang-fill"
+              [style.width]="l.pct + '%'"
+              [style.background]="l.color"
+            ></div>
+          </div>
+          <span class="lang-pct">{{ l.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
